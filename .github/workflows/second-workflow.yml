@@ -2,10 +2,17 @@ name: Ma première Action
 
 on: [push]
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
   Explorer-Actions-Github:
     runs-on: ubuntu-latest
+    env:
+      Greenting: Hello
     steps:
+      - name: "Say hello Mona it's Monday"
+        run: echo "$Greeting $DAY_OF_WEEK"
       - name: Afficher l'événement déclencheur
         run: echo "🎉 La tâche a été automatiquement déclenchée par un événement ${{ github.event_name }}."
 
