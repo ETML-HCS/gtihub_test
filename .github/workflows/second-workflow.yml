@@ -9,7 +9,7 @@ jobs:
   Explorer-Actions-Github:
     runs-on: ubuntu-latest
     env:
-      Greenting: Hello
+      Greeting: Hello
     steps:
       - name: "Say hello Mona it's Monday"
         run: echo "$Greeting $DAY_OF_WEEK"
