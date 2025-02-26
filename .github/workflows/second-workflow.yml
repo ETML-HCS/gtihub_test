@@ -12,7 +12,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say hello Mona it's Monday"
-        run: echo "$Greeting ${{ secrets.AMOUREUSE }} $DAY_OF_WEEK"
+        run: echo "$Greeting $secrets.AMOUREUSE $DAY_OF_WEEK"
       - name: Afficher l'événement déclencheur
         run: echo "🎉 La tâche a été automatiquement déclenchée par un événement ${{ github.event_name }}."
 
