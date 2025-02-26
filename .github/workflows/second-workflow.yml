@@ -3,7 +3,7 @@ name: Ma première Action
 on: [push]
 
 env:
-  DAY_OF_WEEK: Monday
+  DAY_OF_WEEK: Monday test
 
 jobs:
   Explorer-Actions-Github:
