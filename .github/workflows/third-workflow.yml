@@ -3,7 +3,7 @@ on: push
 
 env:
   JOUR_DE_LA_SEMAINE: Lundi
-
+#Ne marche pas a part si on enlève le exit 1#
 jobs:
   job_de_salutation:
     runs-on: ubuntu-latest
@@ -15,7 +15,9 @@ jobs:
         run: exit 1
         env:
           Prenom: Pierre
-          
+
+  #attend sur job de salutation même s'il ne fonctionne pas, enlever needs pour qu'il s'éxécute directement (job secrets) ou enlever always pour 
+  #qu'il ne fonctionne pas s'il le exit 1 est mis#
   job_secret:
     runs-on: ubuntu-latest
     if: always()
