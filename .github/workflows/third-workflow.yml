@@ -15,9 +15,9 @@ jobs:
         run: echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE !"
         env:
           Prenom: Pierre
-    steps: 
+
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
-        run: echo "$Salutation ${{secrets.test}} $Prenom"
+        run: echo "$Salutation ${{secrets.test}} $test"
         env: 
-          
+          test: salut
