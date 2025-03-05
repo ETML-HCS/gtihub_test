@@ -14,10 +14,10 @@ jobs:
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
         run: echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE !"
         env:
-          Prenom: Pier
+          Prenom: Pierre
 
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
-        run: echo "$Salutation ${{secrets.test}} $test"
+        run: echo "$Salutation ${{secrets.test}} $test2"
         env: 
-          test: salut
+          test2: salut
