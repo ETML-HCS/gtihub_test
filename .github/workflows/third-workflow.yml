@@ -11,7 +11,7 @@ jobs:
       Salutation: Bonjour
     steps:
       - name: "Dire bonjour à Pierre parce que c'est lundi"
-        if: ${{ env.JOUR_DE_LA_SEMAINE =! 'Lundi' }}
+        if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
         run: echo $nimportequoi
         env:
           Prenom: Pierre
