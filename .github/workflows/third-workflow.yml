@@ -1,1 +1,17 @@
+name: Pierre
+on: push
 
+env:
+  JOUR_DE_LA_SEMAINE: Lundi
+
+jobs:
+  job_de_salutation:
+    runs-on: ubuntu-latest
+    env:
+      Salutation: Bonjour
+    steps:
+      - name: "Dire bonjour à Pierre parce que c'est lundi"
+        if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
+        run: echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE !"
+        env:
+          Prenom: Pierre
