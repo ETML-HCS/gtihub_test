@@ -16,7 +16,7 @@ jobs:
         env:
           Prenom: Pierre
 
-  #attend sur job de salutation même s'il ne fonctionne pas, enlever needs pour qu'il s'éxécute directement (job secrets) ou enlever always pour 
+  #Attend sur job de salutation même s'il ne fonctionne pas, enlever needs pour qu'il s'éxécute directement (job secrets) ou enlever always pour 
   #qu'il ne fonctionne pas s'il le exit 1 est mis#
   job_secret:
     runs-on: ubuntu-latest
