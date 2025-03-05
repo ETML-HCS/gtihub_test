@@ -23,7 +23,7 @@ jobs:
           TEST2: "<3"
 
       - name: "encore un test"
-        if: ${{ env.JOUR_DE_LA_SEMAINE =! 'Mardi' }}
+        if: ${{ env.JOUR_DE_LA_SEMAINE != 'Mardi' }}
         run: echo "$Travail" 
         env: 
           Travail: "Va travailler Pierre"
