@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: "Dire bonjour à Pierre parce que c'est lundi"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
-        run: echo $nimportequoi
+        run: exit 1
         env:
           Prenom: Pierre
           
   job_secret:
     runs-on: ubuntu-latest
-    needs: job_de_salutation
+    if: always()
     steps:
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
