@@ -17,7 +17,7 @@ jobs:
           Prenom: Pierre
           
   job_secret: 
-    needs: job_de_salutation
+   
     runs-on: ubuntu-latest
     steps: 
       - name:  "Secret"
