@@ -14,7 +14,7 @@ jobs:
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
         run: echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE !"
         env:
-          Prenom: Pierre
+          Prenom: Pier
 
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
