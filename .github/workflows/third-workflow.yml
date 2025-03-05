@@ -18,6 +18,7 @@ jobs:
           
   job_secret:
     runs-on: ubuntu-latest
+    if: always()
     needs: job_de_salutation
     steps:
       - name:  "Secret"
