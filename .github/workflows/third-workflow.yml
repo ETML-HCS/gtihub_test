@@ -11,11 +11,15 @@ jobs:
       Salutation: Bonjour
     steps:
       - name: "Dire bonjour à Pierre parce que c'est lundi"
-        if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
+        if: ${{ env.JOUR_DE_LA_SEMAINE =! 'Lundi' }}
         run: echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE ! ${{secrets.test}}"
         env:
           Prenom: Pierre
-
+          
+  job_secret: 
+    needs: job_de_salutation
+    runs-on: ubuntu-latest
+    steps: 
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
         run: echo "$TEST2 ${{secrets.test}} $Salutation "
@@ -27,3 +31,4 @@ jobs:
         run: echo "$Travail ${{secrets.MDP}}" 
         env: 
           Travail: "Va travailler Pierre"
+
