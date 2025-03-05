@@ -16,10 +16,10 @@ jobs:
         env:
           Prenom: Pierre
           
-  job_secret: 
-   
+  job_secret:
+    if: ${{ always() }}
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
         run: echo "$TEST2 ${{secrets.test}} $Salutation "
