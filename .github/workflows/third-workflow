@@ -1,0 +1,19 @@
+name: Mon premier workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Configurer Node.js
+        uses: actions/setup-node@v3
+
+      - name: Exécuter une action personnalisée
+        uses: ./.github/actions/ma-super-action
+
+      - name: Utiliser une image Docker
+        uses: docker://alpine:3.8
