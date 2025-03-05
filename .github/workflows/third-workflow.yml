@@ -18,6 +18,6 @@ jobs:
 
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
-        run: echo "$Salutation ${{secrets.test}} $test2"
+        run: echo "$Salutation $test2 ${{secrets.test}} "
         env: 
           test2: salut
