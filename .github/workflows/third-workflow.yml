@@ -5,15 +5,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout du code
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Configurer Node.js
-        uses: actions/setup-node@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
-      - name: Exécuter une action personnalisée
-        uses: ./.github/actions/ma-super-action
-
-      - name: Utiliser une image Docker
-        uses: docker://alpine:3.8
+    - name: Run ma-super-action
+      uses: ./.github/actions/ma-super-action
