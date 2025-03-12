@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     needs: job_de_salutation
+    env:
+      Salutation: "Bonjour"
     steps:
       - name:  "Secret"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
@@ -32,8 +34,7 @@ jobs:
       - name: "encore un test"
         if: ${{ env.JOUR_DE_LA_SEMAINE != 'Mardi' }}
         run: echo "$Travail ${{secrets.MDP}}" 
-        env: 
-          Salutation: "Bonjour"
+        env:
           Travail: "Va travailler Pierre"
 
       - name: "test encore un"
