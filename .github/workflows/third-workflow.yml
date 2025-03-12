@@ -35,3 +35,13 @@ jobs:
         env: 
           Travail: "Va travailler Pierre"
 
+      - name: "test encore un"
+        if: ${{ env.Salutation == 'Bonjour' }}
+        run: echo "$Test ${{secrets.MDP}}"
+        env: 
+          Test: "salut mec"
+
+
+
+
+
