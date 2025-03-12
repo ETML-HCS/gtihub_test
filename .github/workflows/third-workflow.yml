@@ -33,6 +33,7 @@ jobs:
         if: ${{ env.JOUR_DE_LA_SEMAINE != 'Mardi' }}
         run: echo "$Travail ${{secrets.MDP}}" 
         env: 
+          Salutation: "Bonjour"
           Travail: "Va travailler Pierre"
 
       - name: "test encore un"
