@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: "Dire bonjour à Pierre parce que c'est lundi"
         if: ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}
-        run: exit 1
+        run: exit 0
         env:
           Prenom: Pierre
 
