@@ -6,7 +6,6 @@ on:
 
 jobs:
   job-de-test:
-  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,9 +15,10 @@ jobs:
   job-de-cache:
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/cache@v3
-        path : ~./npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-         ${{ runner.os }}-node-
-      steps: 
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
