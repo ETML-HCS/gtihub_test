@@ -8,13 +8,14 @@ jobs:
   job-de-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Run a one-line script
         run: echo Hello, world!
 
   job-de-cache:
     runs-on: ubuntu-latest
     steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
       - name: Cache npm
         uses: actions/cache@v3
         with:
@@ -22,3 +23,5 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: install build
+        run: npm i --cache .npm --prefer-offline
