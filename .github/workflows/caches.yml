@@ -16,4 +16,4 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
       - name: install build
-        run: npm i --cache .npm --prefer-offline
+        run: npm install --cache .npm --prefer-offline
