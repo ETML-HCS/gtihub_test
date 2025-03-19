@@ -32,6 +32,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
       - name: install build
         run: npm install --cache .npm --prefer-offline
