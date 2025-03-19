@@ -22,6 +22,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
+<<<<<<< HEAD
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -32,3 +33,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+=======
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+      - name: install build
+        run: npm install --cache .npm --prefer-offline
+>>>>>>> de90442622d67442e84d6fa7fe7bede3acef9ed4
