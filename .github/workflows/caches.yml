@@ -1,8 +1,19 @@
+name: Caches
 
+on:
+  push:
+    branches: [ "main" ]
 
-- name: Cache npm
-  uses: actions/cache@v3
- with:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+    steps: 
+    uses: actions/cache@v3
  path: ~/.npm
  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
  restore-keys: |
