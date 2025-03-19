@@ -28,7 +28,4 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache-npm.outputs.cache-hit != 'true'
-        run: npm i .npm --prefer-offline
-
-      - name: install build
-        run: npm install --cache .npm --prefer-offline
+        run: npm i --prefer-offline
