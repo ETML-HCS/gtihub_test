@@ -30,8 +30,5 @@ jobs:
         if: steps.cache-npm.outputs.cache-hit != 'true'
         run: npm i --cache .npm --prefer-offline
 
-      - name: Build project
-        run: npm run build
-
       - name: install build
         run: npm install --cache .npm --prefer-offline
