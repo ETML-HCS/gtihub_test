@@ -2,18 +2,33 @@ name: Caches
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   job-de-cache:
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
       - name: Cache npm
+        id: cache-npm
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
-      - name: install build
-        run: npm i --cache .npm --prefer-offline
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci --cache .npm --prefer-offline
+
+      - name: Build project
+        run: npm run build
